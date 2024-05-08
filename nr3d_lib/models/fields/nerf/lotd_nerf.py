@@ -166,7 +166,7 @@ class LoTDNeRF(ModelMixin, nn.Module):
         sigma = self.density_activation(output[..., 0])
         return dict(sigma=sigma)
     
-    @torch.no_grad
+    @torch.no_grad()
     def query_density(self, x: torch.Tensor):
         # NOTE: x must be in range [-1,1]
         h = self.encoding(x)
